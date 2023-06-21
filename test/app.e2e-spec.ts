@@ -112,26 +112,26 @@ describe('App e2e', () => {
           .expectStatus(200);
       });
     });
-  });
 
-  describe('Edit user', () => {
-    const dto: EditUserDto = {
-      email: 'alibarmonster@gmail.com',
-      firstName: 'alibar',
-      lastName: 'monster',
-    };
-    it('should edit user', () => {
-      return pactum
-        .spec()
-        .patch('/users')
-        .withHeaders({
-          Authorization: 'Bearer $S{userAt}',
-        })
-        .withBody(dto)
-        .expectStatus(200)
-        .expectBodyContains(dto.email)
-        .expectBodyContains(dto.firstName)
-        .inspect();
+    describe('Edit user', () => {
+      const dto: EditUserDto = {
+        email: 'alibarmonster@gmail.com',
+        firstName: 'alibar',
+        lastName: 'monster',
+      };
+      it('should edit user', () => {
+        return pactum
+          .spec()
+          .patch('/users')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+          .withBody(dto)
+          .expectStatus(200)
+          .expectBodyContains(dto.email)
+          .expectBodyContains(dto.firstName)
+          .inspect();
+      });
     });
   });
 });
