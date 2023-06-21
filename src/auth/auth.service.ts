@@ -53,8 +53,7 @@ export class AuthService {
       throw new ForbiddenException('Invalid password');
     }
 
-    delete user.hash;
-    return user;
+    return this.signToken(user.id, user.email);
   }
 
   async signToken(
