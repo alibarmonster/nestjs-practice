@@ -5,8 +5,8 @@ export class EditUserDto {
   email: string;
 
   @IsString()
-  firstName: string;
+  firstName?: string;
 
   @IsString()
-  lastName: string;
+  lastName?: string;
 }
